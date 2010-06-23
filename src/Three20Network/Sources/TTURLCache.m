@@ -244,9 +244,11 @@ static NSMutableDictionary* gNamedCaches = nil;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIImage*)loadImageFromBundle:(NSString*)URL {
-  NSString* path = TTPathForBundleResource([URL substringFromIndex:9]);
-  NSData* data = [NSData dataWithContentsOfFile:path];
-  return [UIImage imageWithData:data];
+//  NSString* path = TTPathForBundleResource([URL substringFromIndex:9]);
+//  NSData* data = [NSData dataWithContentsOfFile:path];
+//  return [UIImage imageWithData:data];
+// temp hack for hi-res support
+		return [UIImage imageNamed:[URL substringFromIndex:9]];
 }
 
 
