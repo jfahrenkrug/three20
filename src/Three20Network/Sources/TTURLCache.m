@@ -617,7 +617,7 @@ static NSMutableDictionary* gNamedCaches = nil;
     NSDictionary* attrs = [NSDictionary dictionaryWithObject:invalidDate
       forKey:NSFileModificationDate];
 
-#if __IPHONE_4_0 <= __IPHONE_OS_VERSION_MAX_ALLOWED
+#if __IPHONE_4_0 <= IPHONEOS_DEPLOYMENT_TARGET
     [fm setAttributes:attrs ofItemAtPath:filePath error:nil];
 #else
     [fm changeFileAttributes:attrs atPath:filePath];
@@ -636,7 +636,7 @@ static NSMutableDictionary* gNamedCaches = nil;
   NSDirectoryEnumerator* e = [fm enumeratorAtPath:_cachePath];
   for (NSString* fileName; fileName = [e nextObject]; ) {
     NSString* filePath = [_cachePath stringByAppendingPathComponent:fileName];
-#if __IPHONE_4_0 <= __IPHONE_OS_VERSION_MAX_ALLOWED
+#if __IPHONE_4_0 <= IPHONEOS_DEPLOYMENT_TARGET
     [fm setAttributes:attrs ofItemAtPath:filePath error:nil];
 #else
     [fm changeFileAttributes:attrs atPath:filePath];
